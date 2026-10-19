@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Aplicacion {
 
 	public Aplicacion() {
-		Scanner s = new Scanner(System.in);
+		/*Scanner s = new Scanner(System.in);
 		System.out.println("Introduce la marca de tu frigorífico:");
 		String marca = s.nextLine();
 		System.out.println("Introduce la potencia del compresor (W):");
@@ -35,7 +35,32 @@ public class Aplicacion {
 
 		// 5. Recalibrar el Bosch e imprimirlo
 		bosch.recalibrar();
-		System.out.println(bosch);
+		System.out.println(bosch);*/
+		
+	    Scanner teclado = new Scanner(System.in);
+	    
+        System.out.print("Marca del horno: ");
+        String marca = teclado.nextLine();
+        System.out.print("Potencia de la resistencia (W): ");
+        int potencia = teclado.nextInt();
+ 
+        Horno hornoUsuario = new Horno(marca, potencia);
+        Horno hornoSiemens = new Horno("Siemens");
+ 
+        hornoUsuario.calentar(4);
+        hornoUsuario.abrirPuerta(2);
+        hornoUsuario.calentar();
+ 
+        hornoSiemens.calentar(6);
+        hornoSiemens.abrirPuerta(2);
+ 
+        System.out.println(hornoUsuario);
+        System.out.println(hornoSiemens);
+ 
+        hornoSiemens.reiniciar();
+        System.out.println(hornoSiemens);
+ 
+        teclado.close();
 	}
 
 	public static void main(String[] args) {
